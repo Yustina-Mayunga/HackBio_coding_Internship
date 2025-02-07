@@ -1,0 +1,61 @@
+#HackBio internship - Team members information
+#PPL indicates preffered programming Language
+serine01_team_members = {
+    "Member one": {
+        "Name": "Karimat Busari",
+        "Slack username": "Karimat",
+        "Email": "karimatbusari@gmail.com", 
+        "Hobby": "Binge-watching and illustrating",
+        "Country":"Nigeria",
+        "Discipline": "Medical Biology and Genetics",
+        "PPL": "Python"
+    },
+    "Member two": {
+        "Name": "Essien Joshua",
+        "Slack username": "Thunder",
+        "Email": "essienjoshua99@gmail.com",
+        "Hobby": "Reading Wuxia",
+        "Country":"Nigeria",
+        "Discipline": "Biochemistry",
+        "PPL": "Python"
+    },
+    
+    "Member three": {
+        "Name": "Yustina Deck Mayunga",
+        "Slack username": "Tina",
+        "Email": "mayungayustina70@gmail.com", 
+        "Hobby": "Hiking",
+        "Country":"Tanzania",
+        "Discipline": "Molecular biology and Genomics",
+        "PPL": "Python"
+    },
+    "Member four": {
+        "Name": "Nassoufi Chaimae",
+        "Slack username": "Chaimae",
+        "Email": "chaimaenassoufi@gmail.com",
+        "Hobby": "Reading and writting",
+        "Country":"Morocco",
+        "Discipline": "Bioengineering",
+        "PPL": "Python"
+   } ,
+    "Member five": {
+        "Name": "Favour Fabuyi",
+        "Slack username": "Favour",
+        "Email": "fabuyifavour@gmail.com",
+        "Hobby": "Playing Football",
+        "Country":"Nigeria",
+        "Discipline": "Biotechnology",
+        "PPL": "Python" 
+    }
+}
+# The "\n" symbol creates a new line
+
+print("Member one:" "\n", "Name:", serine01_team_members["Member one"]["Name"], "\n", "Slack username:", serine01_team_members["Member one"]["Slack username"], "\n", "Email:", serine01_team_members["Member one"]["Email"], "\n", "Hobby:", serine01_team_members["Member one"]["Hobby"], "\n", "Country:", serine01_team_members["Member one"]["Country"], "\n", "Discipline:", serine01_team_members["Member one"]["Discipline"], "\n", "Preffered Programming Language:", serine01_team_members["Member one"]["PPL"], "\n")
+
+print("Member two:" "\n", "Name:", serine01_team_members["Member two"]["Name"], "\n", "Slack username:", serine01_team_members["Member two"]["Slack username"], "\n", "Email:", serine01_team_members["Member two"]["Email"], "\n", "Hobby:", serine01_team_members["Member two"]["Hobby"], "\n", "Country:", serine01_team_members["Member two"]["Country"], "\n", "Discipline:", serine01_team_members["Member two"]["Discipline"], "\n", "Preffered Programming Language:", serine01_team_members["Member two"]["PPL"], "\n")
+
+print("Member three:" "\n", "Name:", serine01_team_members["Member three"]["Name"], "\n", "Slack username:", serine01_team_members["Member three"]["Slack username"], "\n", "Email:", serine01_team_members["Member three"]["Email"], "\n", "Hobby:", serine01_team_members["Member three"]["Hobby"], "\n", "Country:", serine01_team_members["Member three"]["Country"], "\n", "Discipline:", serine01_team_members["Member three"]["Discipline"], "\n", "Preffered Programming Language:", serine01_team_members["Member three"]["PPL"], "\n")
+
+print("Member four:" "\n", "Name:", serine01_team_members["Member four"]["Name"], "\n", "Slack username:", serine01_team_members["Member four"]["Slack username"], "\n", "Email:", serine01_team_members["Member four"]["Email"], "\n", "Hobby:", serine01_team_members["Member four"]["Hobby"], "\n", "Country:", serine01_team_members["Member four"]["Country"], "\n", "Discipline:", serine01_team_members["Member four"]["Discipline"], "\n", "Preffered Programming Language:", serine01_team_members["Member four"]["PPL"], "\n")
+
+print("Member five:" "\n", "Name:", serine01_team_members["Member five"]["Name"], "\n", "Slack username:", serine01_team_members["Member five"]["Slack username"], "\n", "Email:", serine01_team_members["Member five"]["Email"], "\n", "Hobby:", serine01_team_members["Member five"]["Hobby"], "\n", "Country:", serine01_team_members["Member five"]["Country"], "\n", "Discipline:", serine01_team_members["Member five"]["Discipline"], "\n", "Preffered Programming Language:", serine01_team_members["Member five"]["PPL"])
