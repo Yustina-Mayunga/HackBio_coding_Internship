@@ -3,7 +3,7 @@
 ## Project Overview
 This repository contains the solution to the Stage Zero Task.
 The task involves storing and displaying nested information of five group members using Python's dictionary data structure.
-The final solution is documented in the file tagged as "Serine01_group" inside Stage-zero-folder.
+The final solution is documented in the file tagged as "Serine01_group" inside "Stage-zero-task" folder.
 ## Data Structure
 - Dictionary: The dictionary was used to store key-value pairs where each key represents an attribute (name, slack username, email, hobbies, disciplines, countries, preferred programming languages) and the value represents the corresponding information of the group members.
 The data stored includes:
