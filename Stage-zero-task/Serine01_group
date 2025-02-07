@@ -48,7 +48,9 @@ serine01_team_members = {
         "PPL": "Python" 
     }
 }
+
 # The "\n" symbol creates a new line
+print("Hello everyone. Meet the team members of the serine group in HackBio internship.", "\n")
 
 print("Member one:" "\n", "Name:", serine01_team_members["Member one"]["Name"], "\n", "Slack username:", serine01_team_members["Member one"]["Slack username"], "\n", "Email:", serine01_team_members["Member one"]["Email"], "\n", "Hobby:", serine01_team_members["Member one"]["Hobby"], "\n", "Country:", serine01_team_members["Member one"]["Country"], "\n", "Discipline:", serine01_team_members["Member one"]["Discipline"], "\n", "Preffered Programming Language:", serine01_team_members["Member one"]["PPL"], "\n")
 
