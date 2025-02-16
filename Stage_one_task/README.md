@@ -57,6 +57,6 @@ Each function can be executed independently or integrated into a larger analysis
 ---
 
 ## Author
-Developed by Joshua Essien, Karimat Busari, Favour Fabuyi, Nassoufi Chaimae and Yustina Mayunga. 
+Developed by Joshua Essien, Karimat Busari, Favour Fabuyi, Chaimae Nassoufi and Yustina Deck Mayunga. 
 
 ---
