@@ -2,9 +2,9 @@
 
 ## Overview
 This project consists of three key functionalities implemented in Python:
-1. Codon to Protein Dictionary – A tool for translating DNA sequences into protein sequences.
-2. Logistic Population Growth Curve – A simulation of population growth with randomized lag and exponential phases.
-3. Hamming Distance Calculation – A method to measure the difference between two strings, such as Twitter and Slack usernames.
+1. Codon to Protein Dictionary – A tool for transcribing DNA sequences into mRNA, and translating mRNA into protein.
+3. Logistic Population Growth Curve – A simulation of population growth with randomized lag and exponential phases.
+4. Hamming Distance Calculation – A method to measure the difference between two strings, such as Twitter and Slack usernames.
 
 ---
 
