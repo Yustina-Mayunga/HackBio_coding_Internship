@@ -209,4 +209,3 @@ else:
 #From the growth curve, both strains (WT & MUT) follow the same growth trajectory.
 #The time to reach 80% of the carrying capacity remain close among the WT and MUT type strains, with exception of strain 1
 #Based on the statistical results, we can conclude that there is no significant difference between mutants and wild-type strain in terms of OD recorded because the P-value is greater than 0.05. Manipulation done in the mutants didn't affect the growth.
-
