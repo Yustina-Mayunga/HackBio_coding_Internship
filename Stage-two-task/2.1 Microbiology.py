@@ -3,8 +3,8 @@
 #karimat: https://github.com/hardae/hackbio-biocoding-internship/blob/main/stage%202/stage%202%20karimah
 #Yustina: https://github.com/Yustina-Mayunga/HackBio_coding_Internship/tree/main/Stage-two-task
 #Chaimae:
-#Favour:
-#Joshua:
+#Favour: https://github.com/Fabs247/hackbio_biocoding_intern/blob/main/stage_2_task
+#Joshua: https://github.com/RagingThunder99/Hackbio-biocoding-internship/tree/main/Stage%20Two
 
 ##LinkedIn link:
 
