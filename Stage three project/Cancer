@@ -1,0 +1,88 @@
+import pandas as pd
+# Load the dataset
+df_link = 'https://raw.githubusercontent.com/PacktPublishing/Machine-Learning-in-Biotechnology-and-Life-Sciences/refs/heads/main/datasets/dataset_wisc_sd.csv'
+df = pd.read_csv(df_link)
+print(df.head())
+# Drop the 'id' column
+df.drop(columns=["id"], inplace=True)
+# Check the first few rows
+print(df.head())
+# Convert 'diagnosis' column to numerical values
+df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
+# Check if the conversion worked
+print(df["diagnosis"].head())
+# Check for missing values
+print(df.isnull().sum())
+print(df.dtypes)
+print(df.info())  # Check column types and missing values
+print(df["concave points_worst"].unique())
+df["concave points_worst"] = pd.to_numeric(df["concave points_worst"], errors="coerce")
+df.fillna(df.mean(), inplace=True)
+print(df.isnull().sum())  # Should return all zeros
+import pandas as pd  # Make sure pandas is imported
+from sklearn.preprocessing import StandardScaler 
+import pandas as pd 
+# Select only numerical features (exclude 'id' and 'diagnosis')
+X = df.drop(columns=['diagnosis']) 
+# Apply StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X) 
+# Convert back to a DataFrame
+X_scaled = pd.DataFrame(X_scaled, columns=X.columns) 
+# Check if scaling worked (should be close to mean=0, std=1)
+print(X_scaled.describe())
+import numpy as np
+print("Mean of each column after scaling:", np.mean(X_scaled, axis=0))
+print("Standard deviation of each column after scaling:", np.std(X_scaled, axis=0))
+from sklearn.decomposition import PCA
+# Decide how many components to keep (start with 2 for visualization)
+pca = PCA(n_components=5)
+X_pca = pca.fit_transform(X_scaled)
+# Check explained variance ratio
+print("Explained variance ratio:", pca.explained_variance_ratio_)
+print("Total variance explained:", sum(pca.explained_variance_ratio_))
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+# Try different values of K
+wcss = []
+K_range = range(1, 11)  # Testing K from 1 to 10
+for k in K_range:
+    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+    kmeans.fit(X_pca)  # Apply K-Means to PCA-transformed data
+    wcss.append(kmeans.inertia_)  # Save the WCSS value
+# Plot the Elbow Graph
+plt.figure(figsize=(8, 5))
+plt.plot(K_range, wcss, marker='o', linestyle='-')
+plt.xlabel("Number of Clusters (K)")
+plt.ylabel("WCSS (Within-Cluster Sum of Squares)")
+plt.title("Elbow Method for Choosing K")
+plt.show()
+# Apply K-Means with K=2
+kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
+clusters = kmeans.fit_predict(X_pca)  # Assign clusters
+# Add cluster labels to our DataFrame
+df['Cluster'] = clusters 
+# Compare clusters with actual diagnoses
+cluster_vs_diagnosis = pd.crosstab(df['Cluster'], df['diagnosis'])
+print(cluster_vs_diagnosis)
+# Map clusters to the correct labels
+df['Predicted'] = df['Cluster'].map({0: 1, 1: 0})  # Swap labels if needed
+# Check the confusion matrix again
+new_confusion = pd.crosstab(df['Predicted'], df['diagnosis'])
+print(new_confusion)
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(df['diagnosis'], df['Predicted'])
+print(f'Clustering Accuracy: {accuracy:.2f}')
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+for k in range(2, 6):  # Test K from 2 to 5
+    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10) 
+    clusters = kmeans.fit_predict(X_pca) 
+    plt.figure(figsize=(6,5)) 
+    plt.scatter(X_pca[:, 0], X_pca[:, 1], c=clusters, cmap='coolwarm', alpha=0.6) 
+    plt.title(f'K-Means Clustering with K={k}') 
+    plt.xlabel("PCA Component 1") 
+    plt.ylabel("PCA Component 2") 
+    plt.colorbar(label="Cluster") 
+    plt.show()
