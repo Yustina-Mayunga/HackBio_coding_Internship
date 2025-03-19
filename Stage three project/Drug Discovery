@@ -1,0 +1,62 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+# Load dataset
+df_link = 'https://github.com/HackBio-Internship/2025_project_collection/raw/refs/heads/main/Python/Dataset/drug_class_struct.txt'
+df = pd.read_csv(df_link, sep="\t")  # Ensure correct separator for tab-separated values
+# Convert column names to lowercase for consistency
+df.columns = df.columns.str.lower()
+# Display the first few rows and column names
+print("First 5 rows of the dataset:\n", df.head())
+print("\nColumn Names in the Dataset:\n", df.columns)
+# Ensure target column exists
+target_column = "score"
+if target_column not in df.columns:
+    raise KeyError(f"'{target_column}' column not found. Available columns: {df.columns}")
+# Select numeric feature columns (exclude non-numeric columns like 'id' and 'smiles')
+numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+# Remove target column from feature list
+numeric_cols.remove(target_column)
+# Define feature matrix (X) and target variable (y)
+X = df[numeric_cols]
+y = df[target_column]
+# Split dataset into training (80%) and testing (20%)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+print(f"Training set size: {X_train.shape}, Test set size: {X_test.shape}")
+# Initialize and train the Linear Regression model
+lr_model = LinearRegression()
+lr_model.fit(X_train, y_train)
+y_pred_lr = lr_model.predict(X_test)
+# Evaluate Linear Regression performance
+mse_lr = mean_squared_error(y_test, y_pred_lr)
+print(f"\nLinear Regression - Mean Squared Error: {mse_lr:.4f}")
+# Initialize and train the Random Forest Regression model
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+y_pred_rf = rf_model.predict(X_test)
+# Evaluate Random Forest Regression performance
+mse_rf = mean_squared_error(y_test, y_pred_rf)
+print(f"Random Forest Regression - Mean Squared Error: {mse_rf:.4f}")
+# Feature Importance Analysis (using Random Forest)
+feature_importances = rf_model.feature_importances_
+feature_importance_df = pd.DataFrame({'Feature': numeric_cols, 'Importance': feature_importances})
+feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=False)
+# Plot Feature Importance
+plt.figure(figsize=(12, 6))
+sns.barplot(x='Importance', y='Feature', data=feature_importance_df, palette='viridis')
+plt.xlabel("Feature Importance Score")
+plt.ylabel("Features")
+plt.title("Feature Importance Analysis (Random Forest)")
+plt.show()
+# Visualizing Predicted vs. Actual Values (Random Forest)
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x=y_test, y=y_pred_rf, alpha=0.6)
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red')  # Ideal prediction line
+plt.xlabel("Actual Docking Score")
+plt.ylabel("Predicted Docking Score")
+plt.title("Predicted vs Actual Docking Scores (Random Forest)")
+plt.show()
